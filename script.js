@@ -38,7 +38,7 @@ function makeComputerChoice() {
     console.log(random);
     // sets computer choice equal to one of choices from the array, using the random number
     computer_choice = comp_choice_Array[random];
-    
+
     console.log("computerchoice= " + computer_choice);
 
 
@@ -52,19 +52,47 @@ function showAnimations() {
 
 function determineWinner() {
     console.log("determining the winner");
+
+    //draw
     if (player_choice == computer_choice) {
+        console.log("its a draw");
         showTie();
+    } else if(player_choice == "rock" & computer_choice =="scissors" || player_choice =="paper" & computer_choice == "rock" || player_choice=="scissors" & computer_choice=="paper"){
+       console.log("the player wins") 
+        showWin();
+    }else{
+        console.log("you lose, comp wins");
+        showLose();
     }
+    
+    
+    
+    
+    /*else if (player_choice == "rock") {
+        if (computer_choice == "paper") {
+            showLose();
+            console.log("its a lose");
+        } else if (computer_choice == "scissors") {
+            showWin();
+            console.log("its a win");
+
+        }
+    }*/
 }
 
-function showWin() { }
-function showLose() { }
+function showWin() {
+    document.querySelector("#win").classList.remove("hidden");
+
+}
+function showLose() {
+    document.querySelector("#lose").classList.remove("hidden");
+}
 function showTie() {
-    console.log("its a tie");
+    console.log("there is no winner");
     document.querySelector("#draw").classList.remove("hidden");
 }
 
-function playAgain() { }
+function newGame() { }
 
 
 
